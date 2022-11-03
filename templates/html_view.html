@@ -1,0 +1,35 @@
+<style>
+    body {
+        background-color: #ff7018;
+    }
+
+    .center-column {
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #2dfff5;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-ok {
+        color: #1eff20;
+        background: black;
+    }
+</style>
+<div class="center-column">
+     {% for task in tasks %}                                                {# tasks come form context in the views.py #}
+        <div>
+            <p>
+                {{ task.title }}
+                <button><a class="btn btn-info" href="{% url "details-task" task.pk %}">View</a></button>
+                {# This is what USER see on the page #}
+                <button><a class="btn btn-update" href="{% url "update-task" task.pk %}">Update</a></button>
+                {# task.id will create a link to the obj with that id/pk in our Model/Table #}
+                <button><a class="btn btn-delete" href="{% url "delete-task" task.pk %}">Delete</a></button>
+
+            </p>
+        </div>
+    {% endfor %}
+    <a href="{% url "show-index" %}">Home</a>
+</div>

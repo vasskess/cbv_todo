@@ -1,0 +1,27 @@
+<style>
+    body {
+        background-color: orange;
+    }
+
+    .center-column {
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: wheat;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-ok {
+        color: #1eff20;
+        background: black;
+    }
+</style>
+<div class="center-column">
+    <h1>{{ task.title }}</h1>
+
+        {{ task.description }}
+        <h2>Created {{ task.date_created|timesince }} ago</h2>
+        <a href="{% url "view-tasks" %}"><button>Ok</button></a>
+
+</div>

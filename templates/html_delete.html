@@ -1,0 +1,34 @@
+<style>
+    body {
+        background-color: darkgrey;
+    }
+
+    .center-column {
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f028ff;
+        border-radius: 3px;
+        box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .btn-cancel {
+        color: green;
+    }
+
+    .btn-delete {
+        color: red;
+    }
+</style>
+<div class="center-column">
+    <h1>Delete Item</h1>
+
+    <p> Are you sure you want to delete this {{ item.title }}?</p>                       {# This will create a question with the task.titlе #}
+    <button><a class="btn btn-cancel" href="{% url "view-tasks" %}">Cancel</a></button>   {# If Cancle clicked, redirect to home page #}
+
+
+    <form method="POST" action="">                                                       {# action is empty couse we dont redirect to new link or function #}
+        {% csrf_token %}
+        <input class="btn btn-delete" type="submit" value="Delete" name="Confirm">
+    </form>
+</div>
