@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic as view
@@ -29,12 +30,12 @@ from cbv_todo.todo_list.models import Task
 #
 #         return render(request, template_name="html_todo.html", context={"form": form, "tasks": self.model})
 
-
-class CreateTaskView(view.CreateView):
+class CreateTaskView(SuccessMessageMixin, view.CreateView):
     template_name = 'html_todo.html'
     model = Task
     fields = '__all__'
-    success_url = '/'
+    success_message = "Todo added successfully in View Task Section"
+    success_url = "/"
 
 
 class TasksListView(view.ListView):

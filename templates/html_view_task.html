@@ -20,8 +20,10 @@
 <div class="center-column">
     <h1>{{ task.title }}</h1>
 
-        {{ task.description }}
-        <h2>Created {{ task.date_created|timesince }} ago</h2>
-        <a href="{% url "view-tasks" %}"><button>Ok</button></a>
+    {{ task.description }}
+    <h2>Created {{ task.date_created|timesince }} ago</h2>
+    <a href="{% url "view-tasks" %}" style="text-decoration: none">
+        <button>Ok</button>
+    </a>
 
 </div>

@@ -43,11 +43,16 @@
 </style>
 
 <div class="center-column">
+    {% if messages %}
+     {% for message in messages %}
+         <h2>{{ message }}</h2>
+     {% endfor %}
+ {% endif %}
     <form method="POST" action="">                       {# This will send us to views.py if we click Submit #}
-        {% csrf_token %}                                 {# This will let django know we can accept that POST method #}
+        {% csrf_token %} {# This will let django know we can accept that POST method #}
         {{ form }}
-        <input class="btn btn-submit" type="submit" name="Create Task">    {# This is syntax for Submit button #}
+        <input class="btn btn-submit" type="submit" name="Create Task"> {# This is syntax for Submit button #}
     </form>
-    <a href="{% url "view-tasks" %}">View Tasks</a>
+    <a href="{% url "view-tasks" %}" style="text-decoration: none">View Tasks</a>
 
 </div>

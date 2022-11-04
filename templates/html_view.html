@@ -18,18 +18,21 @@
     }
 </style>
 <div class="center-column">
-     {% for task in tasks %}                                                {# tasks come form context in the views.py #}
+    {% for task in tasks %}                                                {# tasks come form context in the views.py #}
         <div>
             <p>
                 {{ task.title }}
-                <button><a class="btn btn-info" href="{% url "details-task" task.pk %}">View</a></button>
+                <button><a class="btn btn-info" href="{% url "details-task" task.pk %}" style="text-decoration: none">View</a>
+                </button>
                 {# This is what USER see on the page #}
-                <button><a class="btn btn-update" href="{% url "update-task" task.pk %}">Update</a></button>
+                <button><a class="btn btn-update" href="{% url "update-task" task.pk %}" style="text-decoration: none">Update</a>
+                </button>
                 {# task.id will create a link to the obj with that id/pk in our Model/Table #}
-                <button><a class="btn btn-delete" href="{% url "delete-task" task.pk %}">Delete</a></button>
+                <button><a class="btn btn-delete" href="{% url "delete-task" task.pk %}" style="text-decoration: none">Delete</a>
+                </button>
 
             </p>
         </div>
     {% endfor %}
-    <a href="{% url "show-index" %}">Home</a>
+    <a href="{% url "show-index" %}" style="text-decoration: none">Home</a>
 </div>
